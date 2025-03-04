@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class UserController extends AbstractController
 {
-    #[Route('/user/SignUp', name: 'app_user')]
+    #[Route('/user/signUp', name: 'app_user')]
     public function SignUp(): Response
     {
         return $this->render('user/index.html.twig', [
@@ -16,10 +16,10 @@ final class UserController extends AbstractController
         ]);
     }
 
-    #[Route('/user/SignIn', name: 'app_user')]
+    #[Route('/user/signIn', name: 'app_user_signIn')]
     public function SingIn(): Response
     {
-        return $this->render('user/index.html.twig', [
+        return $this->render('user/SignIn.html.twig', [
             'controller_name' => 'UserController',
         ]);
     }

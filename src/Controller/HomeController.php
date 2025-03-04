@@ -2,24 +2,18 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomeController{
-    public function hello():Response
-    {
-        return new Response('Hello World');
-    }
+final class  HomeController extends AbstractController{
 
-    #[Route(path: '/helloworld', name: 'app_home_helloworld')]
-    public function helloworld():Response
+    #[Route('/home', name: 'app_home')]
+    public function index(): Response
     {
-        return new Response('Hello World');
+        return $this->render('home/index.html.twig', [
+            'controller_name' => 'UserController',
+        ]);
     }
-
-    #[Route(path: '/helloworld/{name}', name: 'app_home_hello')]
-    public function helloTo($name):Response
-    {
-        return new Response('Bonjour ' . $name);
-    }
+    
 }
