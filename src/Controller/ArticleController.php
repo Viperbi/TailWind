@@ -5,22 +5,30 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use App\Repository\ArticleRepository;
 
 final class ArticleController extends AbstractController
 {
-    #[Route('/article', name: 'app_article')]
-    public function allArticles(): Response
+    public function __construct(
+        private readonly ArticleRepository $articleRepository
+    )
     {
-        return $this->render('article/index.html.twig', [
-            'controller_name' => 'ArticleController',
+    }
+
+
+    #[Route('/articles', name: 'app_article_all')]
+    public function showAllArticles(): Response
+    {
+        return $this->render('article/show_all_articles.html.twig', [
+            "articles" => $this->articleRepository->findAll(),
         ]);
     }
 
-    #[Route('/article/id', name: 'app_article_id')]
-    public function articleId(): Response
+    #[Route('/article/{id}', name: 'app_article_show')]
+    public function showArticle(int $id): Response
     {
-        return $this->render('article/article.html.twig', [
-            'controller_name' => 'ArticleController',
+        return $this->render('article/show_article.html.twig', [
+            "article" => $this->articleRepository->find($id),
         ]);
     }
 }

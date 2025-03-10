@@ -1,0 +1,21 @@
+meta {
+  name: ajouter un compte
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://127.0.0.1:8000/api/account
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "firstname":"Mathieu",
+    "lastname":"Mithridate",
+    "email":"mathieu@adrar.com",
+    "password":"1234",
+    "roles":"ROLE_USER"
+  }
+}
