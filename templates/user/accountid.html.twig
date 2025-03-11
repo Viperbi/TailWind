@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %} {% block title %}Details du compte{% endblock %}
+{% block body %}
+<div>
+	<h1>Détails du compte</h1>
+	<p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
+		{{ account.firstname }} | {{ account.lastname }}
+	</p>
+	<p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
+		{{ account.email }}
+	</p>
+</div>
+{% endblock %}

@@ -38,6 +38,15 @@ final class UserController extends AbstractController
             "accounts" => $this->accountRepository->getAll()
         ]);
     }
+
+    #[Route('/accounts/{{id}}', name: 'app_user_accounts_id')]
+    public function showById(int $id): Response
+    {
+        return $this->render('user/accounts.html.twig', [
+            "accounts" => $this->accountRepository->getById($id)
+        ]);
+    }
+
     #[Route('/account/add', name: 'app_account_add')]
     public function addAccount(Request $request): Response
     {

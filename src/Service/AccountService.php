@@ -43,4 +43,14 @@ class AccountService
             throw new \Exception("Aucun compte trouvé", 404);
         }
     }
+
+    public function getById(int $id)
+    {
+        $temp = $this->accountRepository->find($id);
+        if ($temp) {
+            return $temp;
+        } else {
+            throw new \Exception("Aucun compte trouvé correspondant à cet Id", 404);
+        }
+    }
 }
