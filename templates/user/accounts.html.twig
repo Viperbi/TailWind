@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %} {% block title %}Liste des comptes{% endblock %}
-{% block body %}
+{% block body %} {% if account is defined %}
 <div class="grid gap-2 p-2 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
 	{% for account in accounts %}
 	<article
@@ -15,4 +15,6 @@
 	</article>
 	{% endfor %}
 </div>
-{% endblock %}
+{% endif %} {% if erreur is defined %}
+<p>{{ erreur }}</p>
+{% endif %} {% endblock %}

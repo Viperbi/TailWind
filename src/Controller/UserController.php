@@ -34,8 +34,14 @@ final class UserController extends AbstractController
     #[Route('/accounts', name: 'app_user_accounts')]
     public function showAllAccounts(): Response
     {
+        try {
+            $accounts = $this->accountRepository->getAll();
+        } catch (\Exception $e) {
+            $erreur = $e->getMessage();
+        }
         return $this->render('user/accounts.html.twig', [
-            "accounts" => $this->accountRepository->getAll()
+            "accounts" => $accounts ?? null,
+            "erreur" => $erreur ?? null
         ]);
     }
 

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %} {% block title %}Météo{% endblock %} {% block
+body %}
+<h1 class="text-2xl font-bold mb-4">Météo</h1>
+<div class="bg-white shadow-md rounded p-4">
+	<p class="text-gray-700 text-lg">Ville: {{ weather.name }}</p>
+	<p class="text-gray-700 text-lg">Temperature: {{ weather.main.temp }} °C</p>
+	<p class="text-gray-700 text-lg">Pays: {{ weather.sys.country }}</p>
+	<p class="text-gray-700 text-lg">
+		Temps:
+		<img
+			src="http://openweathermap.org/img/wn/{{
+				weather.weather[0].icon
+			}}@2x.png"
+			alt="Weather icon"
+		/>
+	</p>
+</div>
+{% endblock %}
