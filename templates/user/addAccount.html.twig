@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %} {% block title %}Ajouter un {% endblock %} {%
+block body %}
+<turbo-frame id="id-category">
+	<div>
+		{{ form_start(form) }}
+		{{ form_label(formulaire.firstname) }}
+		{{ form_widget(form.firstname) }}
+		{{ form_label(formulaire.lastname) }}
+		{{ form_widget(form.lastname) }}
+		{{ form_label(formulaire.email) }}
+		{{ form_widget(form.email) }}
+		{{ form_widget(form.plainpassword) }}
+		{{ form_rest(form) }}
+		{{ form_end(form) }}
+	</div>
+	{% include "composants/_toast.html.twig" %}
+</turbo-frame>
+{% endblock %}

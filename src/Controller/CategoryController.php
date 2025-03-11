@@ -29,12 +29,12 @@ final class CategoryController extends AbstractController
     }
 
     #[Route('/category/add', name:'app_category_add')]
-    public function addCategory(Request $resquest): Response
+    public function addCategory(Request $request): Response
     {   
         
         $category = new Category();
         $form = $this->createForm(CategoryType::class, $category);
-        $form->handleRequest($resquest);
+        $form->handleRequest($request);
         $msg = "";
         $status ="";
         if($form->isSubmitted()){
